@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Program with strings implemented in C style, accepting some constant number of names, and putting them into an array
+//allocating only amount of memory necessary for characters storage.
+
 int main() {
 
         int n=10; //constant number of input names
