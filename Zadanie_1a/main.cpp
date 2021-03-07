@@ -2,6 +2,8 @@
 #include <string>
 
 using namespace std;
+//Program in C++, with strings implemented using string library, accepting some constant number of names,
+// and putting them into an array.
 
 int main() {
 
