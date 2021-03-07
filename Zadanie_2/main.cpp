@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Exemplary program implementing two structures, with the first one containing pointer to the second one.
 int main() {
 
     struct CompetitionClass {
@@ -42,6 +43,7 @@ int main() {
     cout << skater2->compClass->category << endl;
     cout << skater2->compClass->level << endl;
 
+    //memory deallocation
     delete skater1;
     delete skater2;
     delete senSingles;
