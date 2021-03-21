@@ -41,17 +41,67 @@ bool validate(string s, int * octetsInt) {
     return validateValues(octetsInt);
 }
 
-string getSubnetAdress(int ip[4], int mask[4]){
-
-    string subnetAdress="";
-    int values[4];
+//Calculates subnet adress on the basis of IP adress and mask
+void getSubnetAdress(int ip[4], int mask[4], int subnet[4]){
 
     for (int i=0;i<4;i++){
-        values[i]= (ip[i] & mask[i]);
+        subnet[i]= (ip[i] & mask[i]);
     }
-    subnetAdress= to_string(values[0])+'.'+to_string(values[1])+'.'+to_string(values[2])+'.'+to_string(values[3]);
+}
+//Prints IP adress, mask and subnet adress in decimal, hex and binary format
+void print(int ip[4], int mask[4], int subnet[4]){
 
-    return subnetAdress;
+    cout<<"IPv4 adress:"<<endl;
+    for (int i=0;i<4;i++){
+       cout<<ip[i];
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        printf("%x",ip[i]);
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        bitset<8> b=ip[i];
+        cout<<b;
+        if(i<3){cout<<".";}
+    }
+    cout<<endl<<endl;
+    cout<<"Mask:"<<endl;
+    for (int i=0;i<4;i++){
+        cout<<mask[i];
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        printf("%x",mask[i]);
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        bitset<8> b=mask[i];
+        cout<<b;
+        if(i<3){cout<<".";}
+    }
+    cout<<endl<<endl;
+    cout<<"Subnet:"<<endl;
+    for (int i=0;i<4;i++){
+        cout<<subnet[i];
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        printf("%x",subnet[i]);
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
+    for (int i=0;i<4;i++){
+        bitset<8> b=subnet[i];
+        cout<<b;
+        if(i<3){cout<<".";}
+    }
+    cout<<endl;
 }
 
 
@@ -59,6 +109,7 @@ int main() {
 
     int ipOctets[4];
     int maskOctets[4];
+    int subnetOctets[4];
 
     //Input data entered by user
     std::cout << "Enter IPv4 adress:" << std::endl;
@@ -79,6 +130,8 @@ int main() {
         getline(cin, mask);
     }
 
-    cout<<getSubnetAdress(ipOctets,maskOctets);
+    getSubnetAdress(ipOctets,maskOctets,subnetOctets);
+    print(ipOctets,maskOctets,subnetOctets);
+
     return 0;
 }
