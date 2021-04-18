@@ -5,6 +5,7 @@
 
 int main() {
 
+    //test string
     std::string text = R"("ARTHUR: Three questions may cross in safety. "
     "ROBIN: What if you get a question wrong? "
     "ARTHUR: Then you are cast into the Gorge of Eternal Peril. "
@@ -55,13 +56,16 @@ int main() {
     "BRIDGEKEEPER: Huh? I-- I don't know that. Auuuuuuuugh! ")";
 
     std::smatch matches;
+    //Rule to match words not starting with 'E' or 'e' and containing at least one 'a'
     std::regex rule(R"(\b(?![Ee])[a-zA-Z]*a[a-zA-Z]*\b)");
 
     int i=1;
+
+    //Results presentation
     while (std::regex_search(text, matches, rule)) {
 
         std::regex_search(text, matches, rule);
-        std::cout <<i<< "Match " <<i<<": "<< matches.str() << std::endl;
+        std::cout <<"Match " <<i<<": "<< matches.str() << std::endl;
         text = matches.suffix().str();
         i++;
     }
