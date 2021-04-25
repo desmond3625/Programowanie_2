@@ -1,0 +1,6 @@
+Writing this to a file.
+Sun Apr 25 19:55:45 2021
+Current log state: SEVERE
+
+This is the message for SEVERE level
+
