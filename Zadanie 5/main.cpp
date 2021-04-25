@@ -86,7 +86,7 @@ public:
     void printLogMessagesFile(string filename) {
 
         ofstream output;
-        output.open(filename);
+        output.open(filename,ofstream::out | ofstream::app);
 
         auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
         output << ctime(&timenow);
@@ -119,14 +119,14 @@ int main() {
         cin >> fileName;
     }
 
-    cout << "Input log level";
+    cout << "Input log level"<<endl;
     cin >> logLevel;
     Log l = Log(logLevel);
 
     while (true) {
         cin >> cmd;
-        if (cmd == "ChangeLevel") {
-            cout << "Input log level";
+        if (cmd == "SetLevel") {
+            cout << "Input log level"<<endl;
             cin >> logLevel;
             l.setLevel(logLevel);
         }
